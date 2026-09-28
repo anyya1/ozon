@@ -1,0 +1,68 @@
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+
+body { background: #f9f9f9; }
+
+/* Шапка с тенью */
+.header {
+    position: sticky;   /* Прилипает сверху при прокрутке */
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background: #fff;
+    border-radius: 0 0 15px 15px; /* Закруглены ТОЛЬКО нижние углы */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Тень снизу */
+}
+
+.logo { font-size: 24px; font-weight: bold; }
+
+.cart-btn {
+    background: #005bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Баннер */
+.banner { max-width: 1200px; margin: 0 auto 30px; border-radius: 15px; overflow: hidden; }
+.banner img { width: 100%; display: block; }
+
+/* Сетка: 5 колонок — 6-я карточка перенесётся на новую строку */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Карточка товара */
+.card {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* ТЕНЬ */
+    cursor: pointer; /* Курсор как у кнопки */
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-4px); /* Легкий подъём при наведении */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card img { width: 100%; display: block; border-bottom: 1px solid #eee; }
+
+.info { padding: 10px; }
+.price { font-size: 18px; font-weight: bold; }
+.desc { font-size: 11px; color: #777; margin-top: 5px; }
+
+/* Адаптив */
+@media (max-width: 900px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 600px) { .grid { grid-template-columns: repeat(2, 1fr); } }
